@@ -198,6 +198,36 @@ cd BackEnd ; node index.js
 cd FrontEnd ; npm run dev
 ```
 
+### Cách mở trên điện thoại bằng USB Debugging
+1. Settings → About Phone
+2. Bấm 7 lần vào Build Number để bật Developer Options
+3. Vào Settings → Developer Options
+4. Bật USB Debugging
+5. Mở Terminal trên laptop
+```
+adb devices
+```
+6. Trong project
+```
+cd FrontEnd
+npm run dev -- --host
+```
+```
+cd BackEnd
+npm start
+```
+7.  Trong Terminal
+```
+adb reverse tcp:5173 tcp:5173
+adb reverse tcp:8000 tcp:8000
+
+```
+8. Trên điện thoại mở trình duyệt
+```
+http://localhost:5173
+http://localhost:8000
+```
+
 ---
 
 ## 📁 Cấu trúc thư mục
@@ -242,6 +272,8 @@ Project_CNPM/
 ```
 http://localhost:8000/api
 ```
+
+
 
 ### Endpoints chính
 
